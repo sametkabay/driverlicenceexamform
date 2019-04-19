@@ -1,26 +1,23 @@
-import React from "react";
+import React from 'react';
+import './index.css';
+import AuthenticationStore from '../../store/authenticationStore'
+import {
+    Container, Col, Form,
+    FormGroup, Label, Input,
+    Button,
+} from 'reactstrap';
+import LoginModel from '../../model/loginModel';
 
-interface ILoginProps {
+class Login extends React.Component {
 
-}
-
-interface ILoginState {
-    username: string,
-    password: string,
-}
-
-class Login extends React.Component<ILoginProps, ILoginState>{
-    constructor(props: ILoginProps) {
-        super(props);
-        this.state = { username: '', password: '' }
-    }
-
-    componentDidMount(){
-        
+    login = (username: string, password: string) => {
+        AuthenticationStore.login({ username, password } as LoginModel)
     }
 
     render() {
-        return ('Login');
+        return (
+            'Login Formu'
+        );
     }
 }
 
